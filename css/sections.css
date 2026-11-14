@@ -1,0 +1,535 @@
+/* ==========================================================
+   Seções da página (depois do topo)
+   ========================================================== */
+
+.section {
+  position: relative;
+  padding: clamp(96px, 11vw, 168px) var(--gutter);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 56px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+}
+.section-label span { color: var(--navy); }
+.section-label span::after {
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  margin: 0 0 4px 14px;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: .5;
+}
+.section-label--light { color: rgba(238, 239, 233, .6); }
+.section-label--light span { color: var(--paper); }
+
+.section-title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(40px, 4.6vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+.section-title em { font-style: italic; }
+
+/* ---------- 01 Sobre mim ---------- */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  gap: clamp(48px, 7vw, 120px);
+  align-items: start;
+}
+
+/* retrato com topo em arco, como em kristinheinrichpsychology.com.au */
+.about__photo {
+  margin: 0;
+  aspect-ratio: 634 / 1000;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+
+.about__main { padding-top: 8px; }
+
+.about__quote {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(34px, 3.7vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+/* mesma marcação em bloco marinho dos posts dela */
+.about__quote mark {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 0 .16em .04em;
+  font-style: italic;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+
+.about__body { margin-top: 48px; max-width: 560px; }
+.about__body p { margin: 0 0 1.2em; color: var(--navy-80); text-wrap: pretty; }
+
+.facts { margin: 48px 0 0; }
+.facts div {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--navy-15);
+}
+.facts div:last-child { border-bottom: 1px solid var(--navy-15); }
+.facts dt {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  padding-top: 3px;
+}
+.facts dd { margin: 0; font-size: 16px; }
+
+/* ---------- 02 Neuropsicologia ---------- */
+
+.neuro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  column-gap: clamp(40px, 6vw, 110px);
+  background: radial-gradient(90% 70% at 85% 30%, #1C3B64 0%, var(--navy) 55%, #0E2240 100%);
+  color: var(--paper);
+  overflow: hidden;
+}
+.neuro__text { max-width: 640px; }
+.neuro__text > p { color: rgba(238, 239, 233, .82); margin: 1.3em 0 0; text-wrap: pretty; }
+.neuro__text strong { color: var(--paper); font-weight: 600; }
+.neuro .section-title { margin-bottom: 40px; }
+
+.neuro__subtitle {
+  margin: 56px 0 18px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(238, 239, 233, .6);
+}
+.neuro__list { list-style: none; margin: 0; padding: 0; }
+.neuro__list li {
+  position: relative;
+  padding: 14px 0 14px 34px;
+  border-top: 1px solid rgba(238, 239, 233, .14);
+}
+.neuro__list li:last-child { border-bottom: 1px solid rgba(238, 239, 233, .14); }
+.neuro__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 50%;
+  width: 14px; height: 1px;
+  background: var(--paper);
+  opacity: .6;
+}
+
+.neuro__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-top: 56px;
+}
+.neuro__stat-number {
+  flex: none;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: 1;
+}
+.neuro__stat-text { font-size: 14px; line-height: 1.55; color: rgba(238, 239, 233, .7); max-width: 320px; }
+.neuro__stat-text cite { font-style: normal; font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+
+.neuro__art {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* o "screen" no elemento mascarado faz o branco do papel sumir no marinho */
+.neuro__art-img {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 687 / 1280;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 88%, transparent 100%);
+}
+.neuro__art-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) invert(1) contrast(1.8) brightness(.95);
+  opacity: .82;
+}
+.neuro__art figcaption {
+  margin-top: 18px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.neuro__art figcaption { color: rgba(238, 239, 233, .5); text-align: center; }
+
+.neuro__quote {
+  grid-column: 1 / -1;
+  margin: clamp(72px, 9vw, 130px) auto 0;
+  max-width: 980px;
+  text-align: center;
+}
+.neuro__quote p {
+  margin: 0;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(30px, 3.4vw, 52px);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.neuro__quote footer {
+  margin-top: 26px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(238, 239, 233, .6);
+}
+.neuro__quote cite { font-style: normal; text-transform: none; letter-spacing: .04em; }
+
+/* ---------- 03 Como eu trabalho ---------- */
+
+.process__head { max-width: 760px; margin-bottom: clamp(56px, 7vw, 96px); }
+
+.process__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 120px);
+}
+
+/* a prancha fica parada enquanto os passos rolam ao lado (ideia do insightfulmindstherapy.ca) */
+.process__sticky {
+  position: sticky;
+  top: 12vh;
+  align-self: start;
+  width: min(100%, 62vh);
+}
+
+.process__sticky { margin: 0; }
+.process__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 76vh;
+  overflow: hidden;
+  background: var(--navy);
+}
+/* as imagens trocam conforme o passo visível (efeito do insightfulmindstherapy.ca) */
+.process__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity .9s ease, transform 1.6s cubic-bezier(.2, .7, .2, 1);
+}
+.process__frame.is-active { opacity: 1; transform: none; }
+img.process__frame[data-step="1"] { object-position: 50% 72%; }
+
+/* cartão marinho com o Ψ e uma frase dos posts dela */
+.process__plate {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 12%;
+  background: radial-gradient(90% 80% at 50% 40%, #1C3B64 0%, var(--navy) 65%, #0E2240 100%);
+  color: var(--paper);
+  text-align: center;
+}
+.process__plate img { width: 26%; height: auto; }
+.process__plate p {
+  margin: 0;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(26px, 2.4vw, 38px);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.step__media { display: none; }
+
+.steps { list-style: none; margin: 0; padding: 0; }
+.step {
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--navy-15);
+  opacity: .32;
+  transition: opacity .6s ease;
+}
+.step.is-active { opacity: 1; }
+.step:last-child { min-height: 72vh; }
+.step__num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--navy-60);
+}
+.step h3 {
+  margin: 10px 0 18px;
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(34px, 3.2vw, 48px);
+  line-height: 1.05;
+}
+.step p { margin: 0; max-width: 460px; color: var(--navy-80); text-wrap: pretty; }
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 860px) {
+  .section-label { margin-bottom: 36px; font-size: 11px; }
+
+  .about__grid { grid-template-columns: 1fr; gap: 40px; }
+  .facts div { grid-template-columns: 110px 1fr; }
+
+  .neuro { grid-template-columns: 1fr; }
+  .neuro__art { margin-top: 64px; }
+  .neuro__art-img { max-width: 260px; }
+  .neuro__stat { flex-direction: column; gap: 10px; }
+
+  .about__grid { gap: 48px; }
+  .about__photo { max-width: 420px; }
+  .about__body { margin-top: 32px; }
+
+  .process__grid { grid-template-columns: 1fr; gap: 24px; }
+  .process__sticky { display: none; }
+  .step__media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .step__media > img { width: 100%; height: 100%; object-fit: cover; }
+  #passo-2 .step__media > img { object-position: 30% 65%; }
+  .step__media .process__plate { gap: 18px; padding: 8%; }
+  .step__media .process__plate img { width: 18%; }
+  .step__media .process__plate p { font-size: 24px; color: var(--paper); max-width: none; }
+  .step { min-height: 0; opacity: 1; padding: 40px 0; }
+  .step:last-child { min-height: 0; }
+}
+
+/* ---------- 04 Temas que atendo (layout limpo, como kristinheinrichpsychology.com.au) ---------- */
+
+.topics {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(48px, 7vw, 120px);
+  background: #E6E8E2;
+}
+.topics__head { align-self: start; position: sticky; top: 12vh; }
+.topics__intro { margin: 28px 0 0; max-width: 420px; color: var(--navy-80); text-wrap: pretty; }
+
+.topics__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+}
+.topics__list li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 8px;
+  padding: 28px 0;
+  border-top: 1px solid var(--navy-15);
+}
+.topics__list li span {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--navy-60);
+  padding-top: 8px;
+}
+.topics__list h3 {
+  margin: 0 0 8px;
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.topics__list p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--navy-80); }
+
+/* ---------- 05 Perguntas frequentes (acordeão, como centerformodernrelationships.com) ---------- */
+
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(48px, 7vw, 120px);
+}
+.faq__head { align-self: start; position: sticky; top: 12vh; }
+.faq__note { margin: 28px 0 0; color: var(--navy-80); }
+.faq__note a { text-underline-offset: 4px; }
+
+.faq__list details { border-top: 1px solid var(--navy-15); }
+.faq__list details:last-child { border-bottom: 1px solid var(--navy-15); }
+.faq__list summary {
+  position: relative;
+  padding: 26px 56px 26px 0;
+  font-family: var(--f-display);
+  font-size: clamp(22px, 1.9vw, 28px);
+  line-height: 1.2;
+  cursor: pointer;
+  list-style: none;
+}
+.faq__list summary::-webkit-details-marker { display: none; }
+/* sinal de + que vira − ao abrir */
+.faq__list summary::before,
+.faq__list summary::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 16px;
+  height: 1.5px;
+  background: var(--navy);
+  transition: transform .35s ease;
+}
+.faq__list summary::after { transform: rotate(90deg); }
+.faq__list details[open] summary::after { transform: rotate(0deg); }
+.faq__list summary:focus-visible { outline: 2px solid var(--navy); outline-offset: 4px; }
+.faq__list details p {
+  margin: 0;
+  padding: 0 56px 28px 0;
+  max-width: 620px;
+  color: var(--navy-80);
+  text-wrap: pretty;
+}
+
+/* ---------- 06 Agendar (botão de contato em destaque, como minaab.com) ---------- */
+
+.cta {
+  padding: clamp(96px, 11vw, 160px) var(--gutter);
+  text-align: center;
+  background: radial-gradient(80% 90% at 50% 20%, #1C3B64 0%, var(--navy) 60%, #0E2240 100%);
+  color: var(--paper);
+}
+.cta__psi { width: 64px; height: auto; margin: 0 auto 32px; opacity: .9; }
+.cta__title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 1;
+  letter-spacing: -.015em;
+}
+.cta__text {
+  max-width: 520px;
+  margin: 24px auto 0;
+  color: rgba(239, 239, 234, .8);
+  text-wrap: pretty;
+}
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 36px;
+  margin-top: 44px;
+}
+.cta .link-arrow { border-color: rgba(239, 239, 234, .3); }
+.cta .link-arrow:hover { border-color: var(--paper); }
+
+/* ---------- Rodapé ---------- */
+
+.site-footer {
+  padding: 80px var(--gutter) 36px;
+  background: #0E2240;
+  color: rgba(239, 239, 234, .75);
+  font-size: 15px;
+}
+.site-footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(239, 239, 234, .12);
+}
+.site-footer__logo { width: 170px; height: auto; }
+.site-footer__col { display: flex; flex-direction: column; gap: 10px; }
+.site-footer__col h3 {
+  margin: 0 0 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(239, 239, 234, .5);
+}
+.site-footer__col a { text-decoration: none; color: var(--paper); }
+.site-footer__col a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.site-footer__help { margin: 32px 0 0; font-size: 14px; }
+.site-footer__help strong { color: var(--paper); font-weight: 600; }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 32px;
+  margin-top: 28px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: rgba(239, 239, 234, .45);
+}
+
+/* ---------- Menu no celular ---------- */
+
+@media (max-width: 860px) {
+  .topics, .faq { grid-template-columns: 1fr; gap: 40px; }
+  .topics__head, .faq__head { position: static; }
+  .topics__list { grid-template-columns: 1fr; }
+  .faq__list summary { padding-right: 44px; }
+  .faq__list details p { padding-right: 0; }
+  .site-footer__top { grid-template-columns: 1fr 1fr; }
+  .site-footer__logo { grid-column: 1 / -1; width: 140px; }
+
+  .site-header.menu-open { background: var(--navy); color: var(--paper); position: fixed; }
+  .site-header.menu-open .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    padding: 24px var(--gutter) 36px;
+    background: var(--navy);
+    border-top: 1px solid rgba(239, 239, 234, .15);
+  }
+  .site-header.menu-open .nav a { color: var(--paper); font-size: 14px; padding: 12px 0; }
+  .site-header.menu-open .brand__psi { filter: brightness(0) invert(1); }
+  .site-header.menu-open .menu-toggle span { background: var(--paper); }
+}
