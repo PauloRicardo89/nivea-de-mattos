@@ -181,6 +181,7 @@
   object-fit: contain;
   filter: grayscale(1) invert(1) contrast(1.8) brightness(.95);
   opacity: .82;
+  transform: rotate(180deg); /* de cabeça para baixo: evita a leitura de duplo sentido do contorno */
 }
 .neuro__art figcaption {
   margin-top: 18px;
